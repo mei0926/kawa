@@ -176,6 +176,17 @@ button:active {
   z-index: 3;
 }
 
+/* P2の要素 */
+.stamp {
+  opacity: 0;   
+  position: absolute;
+  top: 17%;
+  left: 62%;
+  width: 29.5%;
+  transform-origin: center center;
+}
+
+
 
   </style>
 </head>
@@ -208,7 +219,7 @@ button:active {
       <source src="koji1.mp4" type="video/mp4" />
     </video>
   </div>
-
+ <img src="stamp.png" class="stamp" />
       <button class="back-button" onclick="navigate('top')"></button>
       <button class="mypage-button" onclick="navigate('mypage')"></button>
     </section>
@@ -220,7 +231,7 @@ button:active {
       <source src="koji2.mp4" type="video/mp4" />
     </video>
   </div>
-
+ <img src="stamp.png" class="stamp" />
       <button class="back-button" onclick="navigate('top')"></button>
       <button class="mypage-button" onclick="navigate('mypage')"></button>
     </section>
@@ -258,6 +269,37 @@ button:active {
       `${window.innerHeight}px`
     );
   }
+
+
+  // スタンプアニメーション
+document.querySelectorAll('#profile1, #profile2').forEach(page => {
+
+  const stamp = page.querySelector('.stamp');
+
+  page.addEventListener('click', () => {
+
+    // 拡大は一瞬
+    stamp.style.opacity = "1";
+    stamp.style.transition = 'none';
+    stamp.style.transform = 'scale(3)';
+
+    // 次のフレームで縮小アニメーション
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        stamp.style.transition = 'transform 0.5s ease';
+        stamp.style.transform = 'scale(1)';
+
+                // 縮小が終わってから消す
+        setTimeout(() => {
+          stamp.style.transition = "opacity 0s ease";
+          stamp.style.opacity = "0";
+        }, 300); // transformの時間と合わせる
+      });
+    });
+
+  });
+
+});
 
   window.addEventListener("load", setAppHeight);
   window.addEventListener("resize", setAppHeight);

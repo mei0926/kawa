@@ -215,7 +215,7 @@ button:active {
     <section id="profile1" class="page">
   <div class="video-wrapper">
     <video class="video-bg" autoplay muted loop playsinline>
-      <source src="mino1.mp4" type="video/mp4" />
+      <source src="hase1.mp4" type="video/mp4" />
     </video>
   </div>
  <img src="stamp.png" class="stamp" />
@@ -227,7 +227,7 @@ button:active {
     <section id="profile2" class="page">
   <div class="video-wrapper">
     <video class="video-bg" autoplay muted loop playsinline>
-      <source src="mino2.mp4" type="video/mp4" />
+      <source src="hase2.mp4" type="video/mp4" />
     </video>
   </div>
  <img src="stamp.png" class="stamp" />
@@ -235,13 +235,13 @@ button:active {
       <button class="mypage-button" onclick="navigate('mypage')"></button>
     </section>
 
-    <!-- My Page -->
+    <!-- My Page 
 <section id="mypage" class="page">
-  <img src="mino.png" alt="My Page" class="full-image" />
+  <img src="kato.png" alt="My Page" class="full-image" />
 
   <button class="home-button" onclick="navigate('top')">
   </button>
-</section>
+</section>-->
 
   </div>
 
@@ -269,7 +269,7 @@ button:active {
     );
   }
 
-// スタンプアニメーション
+  // スタンプアニメーション
 document.querySelectorAll('#profile1, #profile2').forEach(page => {
 
   const stamp = page.querySelector('.stamp');
@@ -298,7 +298,7 @@ document.querySelectorAll('#profile1, #profile2').forEach(page => {
   });
 
 });
-  
+
   window.addEventListener("load", setAppHeight);
   window.addEventListener("resize", setAppHeight);
   window.addEventListener("orientationchange", setAppHeight);
